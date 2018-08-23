@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+
+    <dbname value="what_is_the_fuck_weather" />
+
+    <version value="1" />
+
+    <list>
+        <mapping class="com.lingc.whatisthefuckweather.db.Province" />
+        <mapping class="com.lingc.whatisthefuckweather.db.City" />
+        <mapping class="com.lingc.whatisthefuckweather.db.County" />
+    </list>
+
+</litepal>
