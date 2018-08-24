@@ -1,12 +1,12 @@
 package com.lingc.whatisthefuckweather.db;
 
-import org.litepal.crud.DataSupport;
+import org.litepal.crud.LitePalSupport;
 
-public class County extends DataSupport {
+public class County extends LitePalSupport {
 
     private int id;
 
-    private int countyId;
+    private int cityId;
 
     private String weatherId;
 
@@ -20,12 +20,12 @@ public class County extends DataSupport {
         this.id = id;
     }
 
-    public int getCountyId() {
-        return countyId;
+    public int getCityId() {
+        return cityId;
     }
 
-    public void setCountyId(int countyId) {
-        this.countyId = countyId;
+    public void setCityId(int cityId) {
+        this.cityId = cityId;
     }
 
     public String getCountyName() {
