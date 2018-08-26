@@ -3,9 +3,11 @@ package com.lingc.whatisthefuckweather.util;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.google.gson.Gson;
 import com.lingc.whatisthefuckweather.db.City;
 import com.lingc.whatisthefuckweather.db.County;
 import com.lingc.whatisthefuckweather.db.Province;
+import com.lingc.whatisthefuckweather.gson.Weather;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -98,6 +100,22 @@ public class Utility {
         return false;
     }
 
+    /**
+     * 将返回的JSON数据解析为 Weather 实体类
+     * @param response
+     * @return
+     */
+    public static Weather handleWeatherReponse(String response) {
+        try {
+            JSONObject jsonObject = new JSONObject(response);
+            JSONArray jsonArray = jsonObject.getJSONArray("HeWeather");
+            String weatherContent = jsonArray.getJSONObject(0).toString();
+            return new Gson().fromJson(weatherContent, Weather.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     /**
      * 解析和处理服务器的县区级数据（弃用方法）
